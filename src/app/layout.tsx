@@ -8,14 +8,13 @@ import { Footer } from '@/components/footer/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Next.js Markdown CMS Starter Code',
-    template: '%s | Markdown CMS',
+    default: 'Next.js Sanity Template',
+    template: '%s | Next Sanity CMS',
   },
-  description: 'Create Template with Next pages connected to Markdown',
-  // metadataBase: 'https://next-md-starter.pages.dev',
+  description: 'Create Template with Next and Sanity',
   openGraph: {
-    title: 'Next.js Markdown CMS Starter Code',
-    description: 'Create Template with Next pages connected to Markdown',
+    title: 'Next.js Sanity Template',
+    description: 'Create Template with Next and Sanity',
     url: 'https://nextjs.org',
     siteName: 'Next.js',
     images: [
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
   },
   generator: 'Next.js',
   category: 'technology',
-  keywords: 'nextjs, react, markdown CMS',
+  keywords: 'nextjs, react, sanity',
   // TODO: Verfiy site through google
   // verification: {
   //   google: 'google',
