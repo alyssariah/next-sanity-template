@@ -1,10 +1,10 @@
-import '../styles/globals.scss';
+import '@styles/globals.scss';
 import { ManagedUIContext } from '@contexts/managed-ui';
 import { ModalUI } from '@components/modal/Modal';
 import { SidebarUI } from '@components/sidebar/Sidebar';
 import Navbar from '@components/navbar/Navbar';
 import { Metadata } from 'next';
-import { Footer } from '@/components/footer/Footer';
+import { Footer } from '@components/footer/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       url: '/next.svg',
     },
   },
-  manifest: 'https://nextjs.org/manifest.json',
+  // manifest: 'https://nextjs.org/manifest.json',
   twitter: {
     card: 'summary_large_image',
     title: 'Next.js',
@@ -80,14 +80,6 @@ export const metadata: Metadata = {
 };
 
 const links = [
-  {
-    label: 'About',
-    url: '/about',
-  },
-  {
-    label: 'Contact',
-    url: '/contact',
-  },
   {
     label: 'Blog',
     url: '/blog',
