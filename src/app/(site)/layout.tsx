@@ -5,6 +5,7 @@ import { SidebarUI } from '@components/sidebar/Sidebar';
 import Navbar from '@components/navbar/Navbar';
 import { Metadata } from 'next';
 import { Footer } from '@components/footer/Footer';
+import { getPages } from '@sanity/sanity-utils';
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export const metadata: Metadata = {
       url: '/next.svg',
     },
   },
+  // TODO: Create manifest.json
   // manifest: 'https://nextjs.org/manifest.json',
   twitter: {
     card: 'summary_large_image',
@@ -79,14 +81,16 @@ export const metadata: Metadata = {
   // },
 };
 
-const links = [
-  {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const pages = await getPages();
+  const links = pages.map((page) => {
+    return { label: page.title, url: page.slug };
+  });
+
+  links.push({
     label: 'Blog',
     url: '/blog',
-  },
-];
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+  });
   return (
     <html lang="en">
       <body>
