@@ -47,17 +47,16 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/next.svg',
-    shortcut: '/next.svg',
-    apple: [{ url: '/next.svg' }, { url: '/next/svg', sizes: '180x180', type: 'image/svg' }],
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/next.svg',
-    },
-  },
-  // TODO: Create manifest.json
-  // manifest: 'https://nextjs.org/manifest.json',
+  // icons: {
+  //   icon: '/next.svg',
+  //   shortcut: '/next.svg',
+  //   apple: [{ url: '/next.svg' }, { url: '/next/svg', sizes: '180x180', type: 'image/svg' }],
+  //   other: {
+  //     rel: 'apple-touch-icon-precomposed',
+  //     url: '/next.svg',
+  //   },
+  // },
+  manifest: '/manifest.json',
   twitter: {
     card: 'summary_large_image',
     title: 'Next.js',
@@ -99,7 +98,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Navbar
               links={links}
               format="Center links"
-              logo={{ image: '/logo.webp', alt: 'Apps for Scratch Logo', width: 250 }}
+              logo={{
+                image: '/logo.webp',
+                shortImage: '/logo-short.webp',
+                alt: 'NextGen WebWorks Logo',
+              }}
             />
             {children}
             <Footer />

@@ -12,8 +12,8 @@ import { Button } from '../button/Button';
 export interface NavbarProps {
   logo?: {
     image: string;
+    shortImage: string;
     alt: string;
-    width: number;
   };
   links: {
     label: string;
@@ -31,7 +31,11 @@ export interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = { image: '/logo.webp', alt: 'Apps for Scratch Logo', width: 250 },
+  logo = {
+    image: '/logo.webp',
+    shortImage: '/logo.webp',
+    alt: 'Apps for Scratch Logo',
+  },
   links = [],
   hamburger = { animation: '', color: '' },
   darkmode = false,
@@ -75,7 +79,21 @@ export default function Navbar({
           >
             <Link href="/">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={logo.image} alt={logo.alt} width={logo.width} height="100" />
+              <img
+                src={logo.image}
+                className="hidden sm:block"
+                alt={logo.alt}
+                width={180}
+                height="100"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.shortImage}
+                className="block sm:hidden"
+                alt={logo.alt}
+                width={30}
+                height="100"
+              />
             </Link>
           </div>
 
