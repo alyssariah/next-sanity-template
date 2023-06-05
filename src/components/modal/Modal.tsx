@@ -25,7 +25,7 @@ export const ModalView = ({ modalView, closeModal, displayModal }: any) => {
             <Button
               label="Cancel"
               shape="square"
-              configuration={'outline'}
+              configuration={'outlined'}
               size="medium"
               stretch={true}
             />

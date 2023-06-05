@@ -5,7 +5,7 @@ import { Page } from '@/types/Page';
 
 export async function getBlogPosts(): Promise<Array<BlogPost>> {
   return client.fetch(
-    groq`*[_type=="blog"]{
+    groq`*[_type=="blog"] | order(_createdAt asc){
       _id,
       _createdAt,
       name,

@@ -5,7 +5,7 @@ import { HamburgerMenu } from '../hamburger-menu/HamburgerMenu';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import { BsPerson } from 'react-icons/bs';
+import { BsCart, BsPerson, BsSearch } from 'react-icons/bs';
 import { useUI } from '@/contexts/managed-ui';
 import { Button } from '../button/Button';
 
@@ -111,11 +111,20 @@ export default function Navbar({
             })}
           </ul>
           <span
-            className={clsx('hidden lg:flex items-center ml-6', {
+            className={clsx('hidden lg:flex items-center space-x-6 ml-6', {
               ['w-[200px] justify-end']: format == 'Center links',
             })}
           >
-            <Button label="Open Modal" onClick={openModal} />
+            {/* <Button label="Open Modal" onClick={openModal} /> */}
+            <Link href="/search">
+              <BsSearch />
+            </Link>
+            <Link href="/cart">
+              <BsCart />
+            </Link>
+            <Link href="/profile">
+              <BsPerson />
+            </Link>
           </span>
           <div className="block lg:hidden w-[60px]">
             <HamburgerMenu

@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import clsx from 'clsx';
+import { useUI } from '@/contexts/managed-ui';
 
 export interface ButtonProps {
   size?: string;
@@ -12,6 +14,7 @@ export interface ButtonProps {
   configuration?: string;
   onClick?: any;
   stretch?: boolean;
+  modal?: boolean;
 }
 
 export const Button = ({
@@ -25,7 +28,9 @@ export const Button = ({
   configuration = 'filled',
   onClick,
   stretch,
+  modal = false,
 }: ButtonProps) => {
+  const { openModal } = useUI();
   return (
     <button
       type="button"
@@ -43,11 +48,11 @@ export const Button = ({
           ['bg-blue-500 text-white-500 outline-0 border-none hover:opacity-80']:
             configuration === 'filled',
           ['border-blue-500 border-[1px] border-solid text-blue-500 bg-transparent hover:opacity-80']:
-            configuration === 'outline',
+            configuration === 'outlined',
         }
       )}
       disabled={disabled}
-      onClick={onClick}
+      onClick={modal ? openModal : onClick}
     >
       {startIcon && <span className="mr-2">{startIcon}</span>}
       {label}
