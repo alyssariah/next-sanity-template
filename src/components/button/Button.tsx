@@ -47,7 +47,7 @@ export const Button = ({
           ['text-[16px] leading-[20px] h-[40px]']: size === 'large',
           ['bg-blue-500 text-white-500 outline-0 border-none hover:opacity-80']:
             configuration === 'filled',
-          ['border-blue-500 border-[1px] border-solid text-blue-500 bg-transparent hover:opacity-80']:
+          ['border-blue-600 border-[1px] border-solid text-blue-600 bg-transparent hover:opacity-80']:
             configuration === 'outlined',
         }
       )}

@@ -11,10 +11,10 @@ export default async function Page({ params }: Props) {
   return (
     <div className="w-[100%] flex flex-col items-center">
       <div className="max-w-[1440px] w-[100%] min-h-[calc(100vh-60px)] my-8 text-black-500">
-        <h1>{page.title}</h1>
+        <h1>{page?.title}</h1>
 
         <div className="mt-8 text-black-500">
-          <PortableText value={page.content} />
+          <PortableText value={page?.content} />
         </div>
       </div>
     </div>

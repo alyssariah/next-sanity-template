@@ -31,14 +31,14 @@ export const Footer = () => {
       <div className="max-w-[1440px] w-[100%] px-8 py-12 lg:p-20">
         <div className="flex flex-col lg:flex-row space-y-10 lg:space-x-20 lg:space-y-0">
           <div>
-            <h4 className="text-lg">{companyName}</h4>
+            <p className="text-lg">{companyName}</p>
             <p className="font-thin max-w-[360px] text-sm pt-4">{companyDescription}</p>
           </div>
           <div className="flex justify-between flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-20">
             {footerLinks.map((link, i) => {
               return (
                 <div className="lg:pl-4 w-[140px]" key={i}>
-                  <h6 className="mb-4 text-md">{link.label}</h6>
+                  <p className="mb-4 text-md">{link.label}</p>
                   <ul className="text-sm space-y-4">
                     {link.children.map((child, j) => {
                       return (
@@ -52,7 +52,7 @@ export const Footer = () => {
               );
             })}
             <div className="lg:pl-4">
-              <h6 className="mb-4 text-md">Contact</h6>
+              <p className="mb-4 text-md">Contact</p>
               <p className="text-sm">
                 {companyName} <br /> 123 Elm Street <br /> Denver, CO 55328
               </p>
@@ -60,15 +60,15 @@ export const Footer = () => {
               <p className="pt-4 text-sm">Phone: (123)456-7890</p>
             </div>
             <div className="lg:pl-4">
-              <h6 className="mb-4 text-md">Follow Us</h6>
+              <p className="mb-4 text-md">Follow Us</p>
               <div className="flex space-x-6">
-                <Link href="https://www.facebook.com" target="_blank">
+                <Link href="https://www.facebook.com" target="_blank" title="facebook">
                   <BsFacebook className="text-body-lg" />
                 </Link>
-                <Link href="https://www.instagram.com" target="_blank">
+                <Link href="https://www.instagram.com" target="_blank" title="instagram">
                   <BsInstagram className="text-body-lg" />
                 </Link>
-                <Link href="https://twitter.com" target="_blank">
+                <Link href="https://twitter.com" target="_blank" title="twitter">
                   <BsTwitter className="text-body-lg" />
                 </Link>
               </div>

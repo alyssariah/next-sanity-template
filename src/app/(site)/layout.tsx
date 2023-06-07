@@ -47,6 +47,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  metadataBase: new URL('https://next-sanity-template-sigma.vercel.app/'),
   // icons: {
   //   icon: '/next.svg',
   //   shortcut: '/next.svg',
@@ -66,11 +67,7 @@ export const metadata: Metadata = {
     creatorId: '1467726470533754880',
     images: ['https://nextjs.org/og.png'],
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  themeColor: '#008080',
   generator: 'Next.js',
   category: 'technology',
   keywords: 'nextjs, react, sanity',
@@ -92,15 +89,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   });
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
         <ManagedUIContext>
           <main className="flex flex-col items-center w-[100%] bg-white-500 text-black-500 relative overscroll-none">
             <Navbar
               links={links}
               format="Center links"
               logo={{
-                image: '/logo.webp',
-                shortImage: '/logo-short.webp',
+                image: '/logo.svg',
+                shortImage: '/logo-short.png',
                 alt: 'NextGen WebWorks Logo',
               }}
             />

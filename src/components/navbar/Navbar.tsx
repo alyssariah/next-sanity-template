@@ -79,20 +79,14 @@ export default function Navbar({
           >
             <Link href="/">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={logo.image}
-                className="hidden sm:block"
-                alt={logo.alt}
-                width={180}
-                height="100"
-              />
+              <img src={logo.image} className="hidden sm:block" alt={logo.alt} width={180} />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.shortImage}
                 className="block sm:hidden"
                 alt={logo.alt}
-                width={30}
-                height="100"
+                width={60}
+                height={60}
               />
             </Link>
           </div>
@@ -115,14 +109,13 @@ export default function Navbar({
               ['w-[200px] justify-end']: format == 'Center links',
             })}
           >
-            {/* <Button label="Open Modal" onClick={openModal} /> */}
-            <Link href="/search">
+            <Link href="/search" title="search">
               <BsSearch />
             </Link>
-            <Link href="/cart">
+            <Link href="/cart" title="cart">
               <BsCart />
             </Link>
-            <Link href="/profile">
+            <Link href="/profile" title="profile">
               <BsPerson />
             </Link>
           </span>

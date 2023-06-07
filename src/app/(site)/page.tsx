@@ -38,12 +38,11 @@ export default async function Home() {
                   className="flex flex-col items-center justify-center"
                 >
                   {post.image && (
-                    <div className="h-[300px] border border-black-50 rounded-lg shadow-4 overflow-hidden">
+                    <div className="h-[320px] w-[320px] border border-black-50 rounded-lg shadow-4 overflow-hidden relative">
                       <Image
                         src={post.image}
                         alt={post.name}
-                        width={750}
-                        height={300}
+                        fill
                         className="object-cover h-[100%] border-gray-500"
                       />
                     </div>
