@@ -79,14 +79,25 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const pages = await getPages();
-  const links = pages.map((page) => {
-    return { label: page.title, url: page.slug };
-  });
+  // NOTE: Links for dynamic pages
+  // const links = pages.map((page) => {
+  //   return { label: page.title, url: page.slug };
+  // });
 
-  links.push({
-    label: 'Blog',
-    url: '/blog',
-  });
+  const links = [
+    {
+      label: 'About',
+      url: '/about',
+    },
+    {
+      label: 'Contact',
+      url: '/contact',
+    },
+    {
+      label: 'Blog',
+      url: '/blog',
+    },
+  ];
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>

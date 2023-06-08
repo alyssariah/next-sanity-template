@@ -3,9 +3,9 @@ import { client } from './lib/client';
 import { BlogPost } from '@/types/BlogPost';
 import { Page } from '@/types/Page';
 
-export async function getBlogPosts(): Promise<Array<BlogPost>> {
+export async function getBlogPosts(page = 0, offset = 6): Promise<Array<BlogPost>> {
   return client.fetch(
-    groq`*[_type=="blog"] | order(_createdAt asc){
+    groq`*[_type=="blog"][${page}...${offset}] | order(_createdAt asc){
       _id,
       _createdAt,
       name,

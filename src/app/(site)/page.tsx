@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { BsTagFill } from 'react-icons/bs';
 
 export default async function Home() {
-  const blogPosts = await getBlogPosts();
+  const blogPosts = await getBlogPosts(0, 3);
   return (
     <div className="w-[100%] flex flex-col items-center">
       <div className="max-w-[1440px] w-[100%] min-h-[calc(100vh-60px)] my-8">
@@ -49,7 +49,6 @@ export default async function Home() {
                   )}
                   <div className="py-4 text-center">
                     <p className="font-bold">{post.name}</p>
-                    {/* <p className="text-sm">{new Date(post._createdAt).toDateString()}</p> */}
                     <p className="text-underline text-sm text-blue-500">Read Article</p>
                   </div>
                 </Link>
