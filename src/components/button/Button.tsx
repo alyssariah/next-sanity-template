@@ -7,6 +7,7 @@ export interface ButtonProps {
   size?: string;
   label?: string;
   shape?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   disabled?: boolean;
   startIcon?: any;
   endIcon?: any;
@@ -21,6 +22,7 @@ export const Button = ({
   size = 'medium',
   label = 'Button text',
   shape = 'square',
+  type = 'button',
   disabled,
   startIcon,
   endIcon,
@@ -33,7 +35,7 @@ export const Button = ({
   const { openModal } = useUI();
   return (
     <button
-      type="button"
+      type={type}
       className={clsx(
         'flex justify-center items-center cursor-pointer font-[500] px-[24px] tracking-[0.5px]',
         {

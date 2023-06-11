@@ -8,12 +8,15 @@ const initialState = {
   displayHamburger: false,
   modalView: 'DEFAULT',
   sidebarView: 'DEFAULT',
-  closeModal: undefined,
-  openModal: undefined,
-  closeHamburger: undefined,
-  openHamburger: undefined,
-  closeSidebar: undefined,
-  openSidebar: undefined,
+  setModalView: (value) => {
+    return value;
+  },
+  closeModal: () => {},
+  openModal: () => {},
+  closeHamburger: () => {},
+  openHamburger: () => {},
+  closeSidebar: () => {},
+  openSidebar: () => {},
 };
 
 export const UIContext = React.createContext(initialState);

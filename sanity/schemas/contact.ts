@@ -1,18 +1,19 @@
 const contact = {
   name: 'contact',
-  title: 'Contact',
+  title: 'Contact Submissions',
   type: 'document',
   fields: [
     {
-      name: 'title',
+      name: 'name',
       type: 'string',
-      title: 'Title',
     },
     {
-      name: 'content',
-      type: 'array',
-      title: 'Content',
-      of: [{ type: 'block' }],
+      name: 'email',
+      type: 'string',
+    },
+    {
+      name: 'message',
+      type: 'text',
     },
   ],
 };

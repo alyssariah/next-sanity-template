@@ -1,6 +1,6 @@
 const about = {
   name: 'about',
-  title: 'About',
+  title: 'About Page',
   type: 'document',
   fields: [
     {

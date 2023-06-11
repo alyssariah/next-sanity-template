@@ -5,6 +5,8 @@ import { useUI } from '@/contexts/managed-ui';
 import { Dialog } from '../dialog/Dialog';
 import { IoAlertCircleOutline } from 'react-icons/io5';
 import { Button } from '../button/Button';
+import { BsCheckCircle } from 'react-icons/bs';
+import Loading from '../state/Loading';
 
 export const ModalView = ({ modalView, closeModal, displayModal }: any) => {
   return (
@@ -41,7 +43,53 @@ export const ModalView = ({ modalView, closeModal, displayModal }: any) => {
           }
         />
       )}
-      {modalView === 'ERROR' && <div>Error</div>}
+      {modalView === 'CONTACT_SUCCESS' && (
+        <Dialog
+          buttonText="Open the dialog"
+          buttonPrimary="primary"
+          buttonSize="large"
+          buttonShape="square"
+          modalTitle="Form submission sent!"
+          modalContent="Your message has been sent to our team and we will get back to you as soon as we can."
+          boxShadow={4}
+          modalIcon={<BsCheckCircle />}
+          position="center"
+          buttonFlex="row"
+          confirmButton={
+            <Button
+              label="Close"
+              shape="square"
+              configuration={'filled'}
+              size="medium"
+              stretch={true}
+            />
+          }
+        />
+      )}
+      {modalView === 'LOADING' && <Loading />}
+      {modalView === 'ERROR' && (
+        <Dialog
+          buttonText="Open the dialog"
+          buttonPrimary="primary"
+          buttonSize="large"
+          buttonShape="square"
+          modalTitle="An error has occured!"
+          modalContent="An error occurred with your request. Please try again later."
+          boxShadow={4}
+          modalIcon={<IoAlertCircleOutline />}
+          position="center"
+          buttonFlex="row"
+          confirmButton={
+            <Button
+              label="Close"
+              shape="square"
+              configuration={'filled'}
+              size="medium"
+              stretch={true}
+            />
+          }
+        />
+      )}
     </Modal>
   );
 };
