@@ -15,7 +15,7 @@ export const token = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_TOKEN'
 );
 
-export const useCdn = true;
+export const useCdn = false;
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
