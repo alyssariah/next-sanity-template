@@ -3,6 +3,7 @@ import { client } from './lib/client';
 import { BlogPost } from '@/types/BlogPost';
 import { Page } from '@/types/Page';
 import { Home } from '@/types/Home';
+import { About } from '@/types/About';
 
 export async function getBlogPosts(page = 0, offset = 6): Promise<Array<BlogPost>> {
   return client.fetch(
@@ -43,6 +44,19 @@ export async function getHomePage(): Promise<Home> {
         blogPosts[]->{_id, _createdAt, name, "slug": slug.current, "image": image.asset->url}
       },
       newsletter
+    }`
+  );
+}
+
+export async function getAboutPage(): Promise<About> {
+  return client.fetch(
+    groq`*[_type=="about"][0] {
+      content[] {
+        ...,
+        _type == "image" => {
+          "imageURL": asset->url
+        }
+      }
     }`
   );
 }
