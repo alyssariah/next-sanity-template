@@ -16,6 +16,7 @@ export default defineConfig({
   projectId,
   dataset,
   token,
+  useCdn: false,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
