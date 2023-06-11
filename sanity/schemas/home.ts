@@ -1,8 +1,5 @@
-import hero from './objects/hero';
+import selectBlogPosts from './objects/selectBlogPosts';
 import callToAction from './objects/callToAction';
-import form from './objects/form';
-import video from './objects/video';
-import imageGallery from './objects/imageGallery';
 
 const home = {
   name: 'home',
@@ -15,10 +12,56 @@ const home = {
       title: 'Title',
     },
     {
-      name: 'pageBuilder',
-      type: 'array',
-      title: 'Page builder',
-      of: [hero, callToAction, form, video, imageGallery],
+      name: 'firstSection',
+      type: 'object',
+      title: 'First Section',
+      fields: [
+        {
+          name: 'subheading',
+          type: 'string',
+          title: 'Subheading',
+        },
+        {
+          name: 'heading',
+          type: 'string',
+          title: 'Heading',
+        },
+        {
+          name: 'tagline',
+          type: 'string',
+          title: 'Tagline',
+        },
+        callToAction,
+        // {
+        //   name: 'image',
+        //   type: 'image',
+        //   title: 'Image',
+        //   options: {
+        //     hotspot: true,
+        //   },
+        //   fields: [
+        //     {
+        //       name: 'alt',
+        //       type: 'string',
+        //       title: 'Alternative text',
+        //     },
+        //   ],
+        // },
+      ],
+    },
+    selectBlogPosts,
+    {
+      name: 'newsletter',
+      type: 'object',
+      title: 'Newsletter',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        callToAction,
+      ],
     },
   ],
 };

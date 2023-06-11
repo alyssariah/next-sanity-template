@@ -4,13 +4,13 @@ const callToAction = {
   title: 'Call to Action',
   fields: [
     {
-      name: 'linkText',
+      name: 'buttonText',
       type: 'string',
-      title: 'Link Text',
+      title: 'Button Text',
     },
     {
       name: 'url',
-      type: 'url',
+      type: 'string',
       title: 'URL',
     },
   ],

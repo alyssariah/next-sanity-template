@@ -2,6 +2,7 @@ import { groq } from 'next-sanity';
 import { client } from './lib/client';
 import { BlogPost } from '@/types/BlogPost';
 import { Page } from '@/types/Page';
+import { Home } from '@/types/Home';
 
 export async function getBlogPosts(page = 0, offset = 6): Promise<Array<BlogPost>> {
   return client.fetch(
@@ -13,7 +14,8 @@ export async function getBlogPosts(page = 0, offset = 6): Promise<Array<BlogPost
       "image": image.asset->url,
       url,
       content
-    }`
+    }`,
+    { page, offset }
   );
 }
 
@@ -29,6 +31,19 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
       content
     }`,
     { slug }
+  );
+}
+
+export async function getHomePage(): Promise<Home> {
+  return client.fetch(
+    groq`*[_type=="home"][0] {
+      firstSection,
+      selectBlogPosts {
+        title,
+        blogPosts[]->{_id, _createdAt, name, "slug": slug.current, "image": image.asset->url}
+      },
+      newsletter
+    }`
   );
 }
 
