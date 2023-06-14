@@ -1,12 +1,8 @@
 import SanityPortableText from '@/components/portable-text/PortableText';
+import { getAboutPage } from '@sanity/sanity-utils';
 
 export default async function AboutPage() {
-  const aboutContent = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/about`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json());
+  const aboutContent = await getAboutPage();
 
   return (
     <div className="w-[100%] flex flex-col items-center">

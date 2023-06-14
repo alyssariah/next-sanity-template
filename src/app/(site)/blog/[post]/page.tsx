@@ -1,4 +1,5 @@
 import { PortableText } from '@portabletext/react';
+import { getBlogPost } from '@sanity/sanity-utils';
 import Image from 'next/image';
 
 type Props = {
@@ -9,12 +10,8 @@ type Props = {
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
-  const post = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog-post?slug=${slug}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json());
+  const post = await getBlogPost(slug);
+
   return (
     <div className="w-[100%] flex flex-col items-center">
       <div className="max-w-[1024px] w-[100%] min-h-[calc(100vh-60px)] my-8 px-4">

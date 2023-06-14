@@ -3,17 +3,13 @@ import LottieComp from '@/components/lottie/Lottie';
 import { BlogPost } from '@/types/BlogPost';
 import { Home } from '@/types/Home';
 import { Button } from '@components/button/Button';
+import { getHomePage } from '@sanity/sanity-utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsTagFill } from 'react-icons/bs';
 
 export default async function Home() {
-  const homeContent = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/home`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json());
+  const homeContent = await getHomePage();
 
   return (
     <div className="w-[100%] flex flex-col items-center">

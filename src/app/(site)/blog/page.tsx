@@ -1,14 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/types/BlogPost';
+import { getBlogPosts } from '@sanity/sanity-utils';
 
 export default async function Blog() {
-  const blogPosts = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blogs?page=0&offset=6`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json());
+  const blogPosts = await getBlogPosts(0, 6);
 
   return (
     <div className="w-[100%] flex flex-col items-center">
