@@ -11,18 +11,20 @@ export type Home = {
   };
   selectBlogPosts: {
     title: string;
-    blogPosts: {
-      _id: string;
-      _createdAt: Date;
-      name: string;
-      slug: string;
-      image: string;
-      url: string;
-      content: PortableTextBlock[];
-    }[];
+    blogPosts: BlogPosts[];
   };
   newsletter: {
     title: string;
     callToAction: CallToAction;
   };
+};
+
+export type BlogPosts = {
+  _id: string;
+  _createdAt: Date;
+  name: string;
+  slug: string;
+  image: string;
+  url: string;
+  content: PortableTextBlock[];
 };

@@ -1,4 +1,3 @@
-import { getBlogPost } from '@sanity/sanity-utils';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
@@ -10,10 +9,15 @@ type Props = {
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
-  const post = await getBlogPost(slug);
+  const post = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog-post?slug=${slug}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json());
   return (
     <div className="w-[100%] flex flex-col items-center">
-      <div className="max-w-[1440px] w-[100%] min-h-[calc(100vh-60px)] my-8 px-4">
+      <div className="max-w-[1024px] w-[100%] min-h-[calc(100vh-60px)] my-8 px-4">
         <h1 className="text-5xl font-bold">{post.name}</h1>
         <p className="text-md">{new Date(post._createdAt).toDateString()}</p>
         <div className="w-[100%] h-[300px] overflow-hidden relative my-8">
