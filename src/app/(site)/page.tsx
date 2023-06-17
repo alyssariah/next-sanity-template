@@ -7,8 +7,11 @@ import { getHomePage } from '@sanity/sanity-utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsTagFill } from 'react-icons/bs';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../../lib/auth';
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
   const homeContent = await getHomePage();
 
   return (

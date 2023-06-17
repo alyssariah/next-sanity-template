@@ -6,6 +6,7 @@ import Navbar from '@components/navbar/Navbar';
 import { Metadata } from 'next';
 import { Footer } from '@components/footer/Footer';
 import { getPages } from '@sanity/sanity-utils';
+import { NextAuthProvider } from '../provider';
 
 export const metadata: Metadata = {
   title: {
@@ -101,23 +102,25 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <ManagedUIContext>
-          <main className="flex flex-col items-center w-[100%] bg-white-500 text-black-500 relative overscroll-none">
-            <Navbar
-              links={links}
-              format="Center links"
-              logo={{
-                image: '/logo.svg',
-                shortImage: '/logo-short.png',
-                alt: 'NextGen WebWorks Logo',
-              }}
-            />
-            {children}
-            <Footer />
-            <ModalUI />
-            <SidebarUI />
-          </main>
-        </ManagedUIContext>
+        <NextAuthProvider>
+          <ManagedUIContext>
+            <main className="flex flex-col items-center w-[100%] bg-white-500 text-black-500 relative overscroll-none">
+              <Navbar
+                links={links}
+                format="Center links"
+                logo={{
+                  image: '/logo.svg',
+                  shortImage: '/logo-short.png',
+                  alt: 'NextGen WebWorks Logo',
+                }}
+              />
+              {children}
+              <Footer />
+              <ModalUI />
+              <SidebarUI />
+            </main>
+          </ManagedUIContext>
+        </NextAuthProvider>
       </body>
     </html>
   );
